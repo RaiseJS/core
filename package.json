@@ -1,0 +1,24 @@
+{
+    "private": true,
+    "name": "core",
+    "version": "0.0.2",
+    "description": "@RaiseJS/core allows you to use the $ selector and much more in a lightweight ecosystem",
+    "main": "index.js",
+    "author": "Victor Homic / the RaiseJS project",
+    "license": "GPL-3.0-or-later",
+    "scripts": {
+        "build": "npm run polyfill && npm run copy && npm run compile:copy && npm run compile:poly && npm run license:prepend -- --dir='./js/'",
+        "polyfill": "npx babel src --out-file js/poly.core.js --no-comments",
+        "copy": "npx babel src --out-file js/core.js --copy-files --no-comments",
+        "compile:copy": "npx google-closure-compiler --compilation_level=simple --js=js/core.js --js_output_file=js/min.core.js",
+        "compile:poly": "npx google-closure-compiler --compilation_level=simple --js=js/poly.core.js --js_output_file=js/min.poly.core.js",
+        "license:prepend": "node ./bin/prependlicense.js"
+    },
+    "devDependencies": {
+        "@babel/cli": "^7.4.4",
+        "@babel/core": "^7.4.5",
+        "@babel/preset-env": "^7.4.5",
+        "google-closure-compiler": "^20190618.0.0"
+    },
+    "browserslist": "> 0.25%, not dead"
+}

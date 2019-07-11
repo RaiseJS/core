@@ -1,5 +1,4 @@
 {
-    "private": true,
     "name": "core",
     "version": "0.0.2",
     "description": "@RaiseJS/core allows you to use the $ selector and much more in a lightweight ecosystem",
@@ -7,11 +6,11 @@
     "author": "Victor Homic / the RaiseJS project",
     "license": "GPL-3.0-or-later",
     "scripts": {
-        "build": "npm run polyfill && npm run copy && npm run compile:copy && npm run compile:poly && npm run license:prepend -- --dir='./js/'",
-        "polyfill": "npx babel src --out-file js/poly.core.js --no-comments",
+        "build": "npm run copy && npm run polyfill && npm run compile:copy && npm run compile:poly && npm run license:prepend -- --dir='./js/'",
         "copy": "npx babel src --out-file js/core.js --copy-files --no-comments",
-        "compile:copy": "npx google-closure-compiler --compilation_level=simple --js=js/core.js --js_output_file=js/min.core.js",
-        "compile:poly": "npx google-closure-compiler --compilation_level=simple --js=js/poly.core.js --js_output_file=js/min.poly.core.js",
+        "polyfill": "npx babel src --out-file js/poly.core.js --no-comments",
+        "compile:copy": "npx google-closure-compiler --js=js/core.js --js_output_file=js/min.core.js",
+        "compile:poly": "npx google-closure-compiler --js=js/poly.core.js --js_output_file=js/min.poly.core.js",
         "license:prepend": "node ./bin/prependlicense.js"
     },
     "devDependencies": {

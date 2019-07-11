@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>@RaiseJS/core Testing Environment</title>
+</head>
+<body>
+    <p>The following paragraph will be shown after the page is loaded:</p>
+    <p type="button" style="color: blue; display: none;" id="loaded">Page is loaded :)</p>
+    <script src="../js/min.poly.core.js"></script>
+    <script>
+		$().ready(function() {
+			$("#loaded").each(function(el) {
+				el.style.display = "block";
+			});
+		});
+    </script>
+</body>
+</html>
